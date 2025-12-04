@@ -1,9 +1,14 @@
 import { useParams } from "react-router-dom";
-import { Box, Typography } from "@mui/material";
+import { Box, Stack, Typography, useTheme } from "@mui/material";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import { useMarkdown } from "../../shared/hooks/useMarkdown";
 import { teamMembers } from "../Home/components/SidePanel/utils";
+import Loader from "../../shared/components/Loader";
 
 const MemberDetail = () => {
   const { slug } = useParams<{ slug: string }>();
+  const theme = useTheme();
 
   const member = teamMembers.find((m) => m.slug === slug);
 
@@ -19,31 +24,73 @@ const MemberDetail = () => {
     );
   }
 
+  const markdownUrl = `https://cdn.lomn.app/titan/media/markdown/members/${member.slug}.md`;
+
+  const { content, loading, error } = useMarkdown(markdownUrl);
+
   return (
-    <Box sx={{ margin: "2rem auto 0rem auto" }}>
-      <Typography variant="overline" sx={{ letterSpacing: ".18em" }}>
-        TEAM MEMBER
-      </Typography>
+    <Box
+      sx={{
+        margin: "2rem auto 0 auto",
+        padding: "0rem 2rem",
+        width: "100%",
+        maxWidth: 800,
+      }}
+    >
+      <Stack
+        sx={{
+          padding: "2rem",
+          backgroundColor: theme.palette.background.paper,
+        }}
+      >
+        <Typography variant="overline" sx={{ letterSpacing: ".18em" }}>
+          TEAM MEMBER
+        </Typography>
 
-      <Typography variant="h4" component="h1" sx={{ mt: 1, mb: 2 }}>
-        {member.name}
-      </Typography>
+        <Typography variant="h4" component="h1" fontWeight={700}>
+          {member.name}
+        </Typography>
 
-      <Typography variant="subtitle1" sx={{ mb: 1 }}>
-        {member.role}
-      </Typography>
+        <Stack>
+          <Typography variant="subtitle1">{member.role}</Typography>
 
-      {member.subtitle && (
-        <Typography variant="body1" sx={{ color: "text.secondary", mb: 3 }}>
-          {member.subtitle}
+          {member.subtitle && (
+            <Typography variant="body1" sx={{ color: "text.secondary" }}>
+              {member.subtitle}
+            </Typography>
+          )}
+        </Stack>
+      </Stack>
+
+      {loading && <Loader />}
+
+      {error && (
+        <Typography variant="body2" sx={{ color: "text.secondary" }}>
+          Ainda não tem uma bio configurada para este membro.
         </Typography>
       )}
 
-      <Typography variant="body2" sx={{ color: "text.secondary" }}>
-        Aquí podemos contar la historia del miembro, su rol en el proyecto,
-        background, habilidades técnicas, etc. Luego lo rellenamos con info
-        real.
-      </Typography>
+      {!loading && !error && content && (
+        <Box
+          sx={{
+            mt: 2,
+            "& h1": { fontSize: "1.6rem", marginBottom: "0.75rem" },
+            "& h2": { fontSize: "1.3rem", margin: "1.5rem 0 0.75rem" },
+            "& h3": { fontSize: "1.1rem", margin: "1rem 0 0.5rem" },
+            "& p": {
+              fontSize: ".95rem",
+              color: "text.secondary",
+              marginBottom: "0.75rem",
+            },
+            "& ul": {
+              paddingLeft: "1.25rem",
+              marginBottom: "0.75rem",
+            },
+          }}
+        >
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
+        </Box>
+      )}
     </Box>
   );
 };

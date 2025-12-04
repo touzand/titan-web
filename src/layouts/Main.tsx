@@ -39,10 +39,10 @@ const MainLayout = () => {
           }}
         >
           {
-            <source
-              src="https://cdn.lomn.app/titan/media/videos/48H.mp4"
-              type="video/mp4"
-            />
+            //<source
+            //src="https://cdn.lomn.app/titan/media/videos/48H.mp4"
+            //type="video/mp4"
+            ///>
           }
         </Box>
 

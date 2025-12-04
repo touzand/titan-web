@@ -38,6 +38,6 @@ export const teamMembers: TeamMember[] = [
     name: "Raul Fernandes Silva Melo",
     role: "Modelador 3D, Back-end e Apoio Geral",
     subtitle: "Dev BackEnd | DevSecOps | Cybersecurity",
-    avatar: "/vite.svg",
+    avatar: "https://cdn.lomn.app/titan/media/members/raul.png",
   },
 ];

@@ -112,10 +112,9 @@ const SidePanel = () => {
                   className="member-photo"
                   sx={{
                     position: "absolute",
-                    bottom: 0,
+                    bottom: -20,
                     right: -20,
                     width: 110,
-                    height: 110,
                     objectFit: "cover",
                     borderRadius: 1.5,
                     filter: "grayscale(100%)",
