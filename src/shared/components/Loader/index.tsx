@@ -1,12 +1,21 @@
-import { Box } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import { keyframes } from "@mui/system";
 
-const spinEaseOut = keyframes`
+const coinTilt = keyframes`
   0% {
-    transform: rotate(0deg);
+    transform: perspective(600px) rotateY(0deg);
+  }
+  25% {
+    transform: perspective(600px) rotateY(90deg);
+  }
+  50% {
+    transform: perspective(600px) rotateY(0deg);
+  }
+  75% {
+    transform: perspective(600px) rotateY(-90deg);
   }
   100% {
-    transform: rotate(360deg);
+    transform: perspective(600px) rotateY(0deg);
   }
 `;
 
@@ -15,31 +24,45 @@ type LoaderProps = {
   src?: string;
 };
 
-const Loader = ({ size = 50, src = "/vite.svg" }: LoaderProps) => {
+const Loader = ({ size = 100, src = "/titan_logo.png" }: LoaderProps) => {
+  const theme = useTheme();
   return (
     <Box
       sx={{
         width: "100%",
-        height: "200px",
+        height: 200,
         display: "inline-flex",
         alignItems: "center",
         justifyContent: "center",
-        borderRadius: "50%",
-        padding: 1.5,
-        backdropFilter: "blur(6px)",
+        p: 1.5,
       }}
     >
       <Box
-        component="img"
-        src={src}
-        alt="Logo"
         sx={{
           width: size,
           height: size,
-          animation: `${spinEaseOut} 1.6s cubic-bezier(0.2, 0.9, 0.3, 1) infinite`,
+          borderRadius: "50%",
+          border: `medium solid ${theme.palette.primary.main}`,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          overflow: "hidden",
+          animation: `${coinTilt} 3.5s ease-in-out infinite`,
+          transformStyle: "preserve-3d",
           transformOrigin: "50% 50%",
+          willChange: "transform",
         }}
-      />
+      >
+        <Box
+          component="img"
+          src={src}
+          alt="Logo"
+          sx={{
+            objectFit: "contain",
+            display: "block",
+          }}
+        />
+      </Box>
     </Box>
   );
 };

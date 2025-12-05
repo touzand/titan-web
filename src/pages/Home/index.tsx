@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import SidePanel from "./components/SidePanel";
 import HeroSection from "./components/HeroSection";
 
@@ -8,14 +8,14 @@ const Home = () => {
       sx={{
         flex: 1,
         display: "flex",
-        width: "100%",
         minHeight: 0,
         overflow: "hidden",
-        padding:'0rem 5rem'
       }}
     >
-      <SidePanel />
-      <HeroSection />
+      <Stack flexDirection="row" sx={{width:'1500px', margin:'auto'}}>
+        <SidePanel />
+        <HeroSection />
+      </Stack>
     </Box>
   );
 };

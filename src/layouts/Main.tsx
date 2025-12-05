@@ -33,16 +33,16 @@ const MainLayout = () => {
             objectFit: "cover",
             zIndex: 0,
             opacity: 0.05,
-            filter: "blur(20px)",
-            transform: "scale(1.05)",
+            //filter: "blur(20px)",
+            //transform: "scale(1.05)",
             pointerEvents: "none",
           }}
         >
           {
-            //<source
-            //src="https://cdn.lomn.app/titan/media/videos/48H.mp4"
-            //type="video/mp4"
-            ///>
+            <source
+              src="https://cdn.lomn.app/titan/media/videos/making_of_background.mp4"
+              type="video/mp4"
+            />
           }
         </Box>
 

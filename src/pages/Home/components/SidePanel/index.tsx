@@ -1,7 +1,7 @@
 import { Box, Stack, Typography, useTheme } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
-import { teamMembers } from "./utils";
 import Subtitle from "../../../../shared/components/Subtitle";
+import { teamMembers } from "../../../../shared/utils/teamMembers";
 
 const SidePanel = () => {
   const theme = useTheme();

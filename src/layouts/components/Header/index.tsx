@@ -1,12 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 import {
-  AppBar,
-  Toolbar,
   Typography,
   Box,
   Button,
   IconButton,
   useTheme,
+  Stack,
 } from "@mui/material";
 import { Menu as MenuIcon } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -17,11 +16,7 @@ type NavItem = {
   Icon: LucideIcon;
 };
 
-const navItems: NavItem[] = [
-  //{ label: "Home", path: "/", Icon: Home },
-  //{ label: "Sponsors", path: "/sponsors", Icon: Handshake },
-  //{ label: "Team", path: "/team", Icon: Users },
-];
+const navItems: NavItem[] = [];
 
 const Header = ({ setMenuOpen }) => {
   const theme = useTheme();
@@ -29,73 +24,104 @@ const Header = ({ setMenuOpen }) => {
   const navigate = useNavigate();
 
   return (
-    <AppBar
-      position="static"
-      elevation={0}
+    <Box
+      component="header"
       sx={{
+        width: "100%",
         bgcolor: theme.palette.background.paper,
         borderBottom: `1px solid ${theme.palette.divider}`,
       }}
     >
-      <Toolbar>
-        <Typography
-          variant="h6"
-          sx={{
-            flexGrow: 1,
-            letterSpacing: ".15rem",
-            cursor: "pointer",
-            transition: "letter-spacing 0.25s ease",
-            "&:hover": {
-              letterSpacing: ".25rem",
-            },
-          }}
-          onClick={() => navigate("/")}
-        >
-          TITAN · NASA SPACE APP CHALLENGE 2025
-        </Typography>
-
-        {navItems.map(({ label, path, Icon }) => (
-          <Button
-            key={path}
-            component={Link}
-            to={path}
+      <Stack direction="row" alignItems="center" sx={{}}>
+        <Stack flexDirection="row" sx={{ width: "1500px", margin: "auto" }}>
+          <Box
             sx={{
-              mx: 1,
-              textTransform: "none",
-              borderRadius: 0,
-              ...(isActive(path) && {
-                borderBottom: `2px solid ${theme.palette.primary.main}`,
-              }),
+              display: "flex",
+              alignItems: "center",
+              gap: 1.5,
+              flexGrow: 1,
+              cursor: "pointer",
             }}
-            color="inherit"
+            onClick={() => navigate("/")}
           >
-            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-              <Icon size={16} />
-              {label}
+            <Box
+              sx={{
+                backgroundColor: theme.palette.primary.main,
+                px: 1.5,
+                py: "5px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Box
+                component="img"
+                src="/titan_logo.png"
+                alt="Logo Titan"
+                sx={{
+                  height: 50,
+                  width: "auto",
+                  display: "block",
+                }}
+              />
             </Box>
-          </Button>
-        ))}
 
-        <IconButton
-          edge="end"
-          color="inherit"
-          aria-label="open menu"
-          onClick={() => setMenuOpen(true)}
-          disableRipple
-          sx={{
-            "&:focus": {
-              outline: "none",
-            },
-            "&.Mui-focusVisible": {
-              outline: "none",
-              backgroundColor: "transparent",
-            },
-          }}
-        >
-          <MenuIcon size={20} />
-        </IconButton>
-      </Toolbar>
-    </AppBar>
+            <Typography
+              variant="h6"
+              sx={{
+                letterSpacing: ".15rem",
+                transition: "letter-spacing 0.25s ease",
+                whiteSpace: "nowrap",
+                "&:hover": {
+                  letterSpacing: ".25rem",
+                },
+              }}
+            >
+              TITAN · NASA SPACE APP CHALLENGE 2025
+            </Typography>
+          </Box>
+
+          {navItems.map(({ label, path, Icon }) => (
+            <Button
+              key={path}
+              component={Link}
+              to={path}
+              sx={{
+                mx: 1,
+                textTransform: "none",
+                borderRadius: 0,
+                ...(isActive(path) && {
+                  borderBottom: `2px solid ${theme.palette.primary.main}`,
+                }),
+              }}
+              color="inherit"
+            >
+              <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                <Icon size={16} />
+                {label}
+              </Box>
+            </Button>
+          ))}
+
+          <IconButton
+            edge="end"
+            color="inherit"
+            aria-label="open menu"
+            onClick={() => setMenuOpen(true)}
+            disableRipple
+            sx={{
+              "&:focus": { outline: "none" },
+              "&.Mui-focusVisible": {
+                outline: "none",
+                backgroundColor: "transparent",
+              },
+            }}
+          >
+            <MenuIcon size={25} />
+          </IconButton>
+        </Stack>
+      </Stack>
+    </Box>
   );
 };
 

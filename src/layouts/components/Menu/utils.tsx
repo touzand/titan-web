@@ -1,5 +1,5 @@
-import { teamMembers } from "../../../pages/Home/components/SidePanel/utils";
-import { sections } from "../../../pages/ProjectDetail/utils";
+import { sections } from "../../../shared/utils/projectSections";
+import { teamMembers } from "../../../shared/utils/teamMembers";
 
 export type MainMenuProps = {
   open: boolean;

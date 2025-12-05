@@ -49,7 +49,7 @@ const Menu = ({ open, onClose }: MainMenuProps) => {
             variant="subtitle1"
             sx={{ letterSpacing: ".16em", textTransform: "uppercase" }}
           >
-            EYES ON THE MOON
+            TITAN · NASA SPACE APP CHALLENGE 2025
           </Typography>
 
           <IconButton size="small" onClick={onClose}>

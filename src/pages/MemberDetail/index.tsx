@@ -3,9 +3,9 @@ import { Box, Stack, Typography, useTheme } from "@mui/material";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { useMarkdown } from "../../shared/hooks/useMarkdown";
-import { teamMembers } from "../Home/components/SidePanel/utils";
 import Loader from "../../shared/components/Loader";
 import Subtitle from "../../shared/components/Subtitle";
+import { teamMembers } from "../../shared/utils/teamMembers";
 
 const MemberDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -43,7 +43,7 @@ const MemberDetail = () => {
           padding: "2rem",
           backgroundColor: theme.palette.background.paper,
         }}
-      gap="1rem"
+        gap="1rem"
       >
         <Subtitle>TEAM MEMBER</Subtitle>
 
