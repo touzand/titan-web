@@ -103,7 +103,7 @@ const SidePanel = () => {
                     position: "absolute",
                     bottom: -0,
                     right: -20,
-                    width: 110,
+                    width: 90,
                     objectFit: "cover",
                     borderRadius: 1.5,
                     filter: "grayscale(100%)",
