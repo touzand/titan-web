@@ -1,6 +1,7 @@
 import { Box, Stack, Typography, useTheme } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { teamMembers } from "./utils";
+import Subtitle from "../../../../shared/components/Subtitle";
 
 const SidePanel = () => {
   const theme = useTheme();
@@ -11,7 +12,6 @@ const SidePanel = () => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        gap: ".5rem",
         height: "100%",
         minHeight: 0,
         overflowY: "hidden",
@@ -19,16 +19,9 @@ const SidePanel = () => {
       }}
     >
       <Stack>
-        <Typography
-          variant="overline"
-          sx={{
-            color: "text.secondary",
-            letterSpacing: ".16em",
-            padding: "0rem 0rem 0rem 1rem",
-          }}
-        >
-          MEMBERS
-        </Typography>
+        <Box sx={{ margin: ".5rem 0rem" }}>
+          <Subtitle>MEMBERS</Subtitle>
+        </Box>
 
         <Box
           sx={{
@@ -39,7 +32,7 @@ const SidePanel = () => {
             minHeight: 0,
             overflowY: "auto",
             overflowX: "visible",
-            padding: "0rem 3rem 0rem 1rem",
+            padding: "0rem 3rem 0rem 0rem",
           }}
         >
           {teamMembers.map((member) => (
@@ -52,17 +45,14 @@ const SidePanel = () => {
               <Box
                 sx={{
                   position: "relative",
-                  bgcolor: "background.paper",
+                  bgcolor: theme.palette.background.paper,
                   display: "flex",
                   alignItems: "stretch",
-                  border: `solid thin ${theme.palette.divider + "50"}`,
-                  boxShadow: "0 0 0 1px rgba(255,255,255,0.02)",
                   overflow: "visible",
                   transition:
                     "transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease",
                   "&:hover": {
                     transform: "translateX(12px)",
-                    boxShadow: "0 18px 45px rgba(0,0,0,0.7)",
                     "& .member-photo": {
                       filter: "grayscale(0%)",
                       transform: "translateX(10px) scale(1.05)",
@@ -79,7 +69,7 @@ const SidePanel = () => {
                 >
                   <Typography
                     variant="body1"
-                    sx={{ fontWeight: 500, mb: 0.5, color: "text.primary" }}
+                    sx={{ fontWeight: 500, color: "text.primary" }}
                   >
                     {member.name}
                   </Typography>
@@ -89,8 +79,7 @@ const SidePanel = () => {
                       display: "block",
                       letterSpacing: ".16em",
                       textTransform: "uppercase",
-                      color: "text.secondary",
-                      mb: 0.5,
+                      color: theme.palette.primary.main,
                     }}
                   >
                     {member.role}
@@ -112,7 +101,7 @@ const SidePanel = () => {
                   className="member-photo"
                   sx={{
                     position: "absolute",
-                    bottom: -20,
+                    bottom: -0,
                     right: -20,
                     width: 110,
                     objectFit: "cover",

@@ -12,6 +12,7 @@ import { sections } from "./utils";
 import { useMarkdown } from "../../shared/hooks/useMarkdown";
 import rehypeRaw from "rehype-raw";
 import Loader from "../../shared/components/Loader";
+import Subtitle from "../../shared/components/Subtitle";
 
 const ProjectDetail = () => {
   const handleScrollTo = useCallback((id: string) => {
@@ -54,9 +55,7 @@ const ProjectDetail = () => {
             flexDirection: "column",
           }}
         >
-          <Typography variant="overline" sx={{ letterSpacing: ".18em" }}>
-            PROJETO
-          </Typography>
+          <Subtitle>PROJETO</Subtitle>
 
           <List dense>
             {sections.map((section) => (
@@ -106,6 +105,7 @@ const ProjectDetail = () => {
                   textTransform: "uppercase",
                   color: "text.secondary",
                   margin: "0px",
+                  fontWeight: 400,
                 },
                 "& p": {
                   fontSize: ".9rem",

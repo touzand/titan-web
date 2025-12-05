@@ -10,11 +10,10 @@ const HeroSection = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "end",
-        padding: "2rem",
       }}
     >
-      <Stack gap="2rem" alignItems="flex-end" textAlign="right" maxWidth={640}>
-        <Typography variant="overline" sx={{ letterSpacing: ".18em" }}>
+      <Stack gap="2rem" alignItems="flex-end" textAlign="right">
+        <Typography variant="overline" color="textSecondary" sx={{ letterSpacing: ".18em" }}>
           NASA SPACE APPS 2025 · FINALISTAS GLOBAIS
         </Typography>
 
@@ -36,17 +35,22 @@ const HeroSection = () => {
           inovação com impacto real.
         </Typography>
 
-        <Box>
+        <Stack gap="1rem" flexDirection="row">
           <Button
             variant="contained"
-            color="primary"
-            size="large"
-            sx={{ mt: 1 }}
             onClick={() => navigate("/project")}
+            sx={{ textTransform: "none" }}
           >
             Saiba mais sobre o projeto
           </Button>
-        </Box>
+          <Button
+            variant="outlined"
+            onClick={() => navigate("/project")}
+            sx={{ textTransform: "none" }}
+          >
+            Assistir making of
+          </Button>
+        </Stack>
       </Stack>
     </Box>
   );

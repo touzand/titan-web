@@ -42,8 +42,12 @@ const Header = ({ setMenuOpen }) => {
           variant="h6"
           sx={{
             flexGrow: 1,
-            letterSpacing: ".25rem",
+            letterSpacing: ".15rem",
             cursor: "pointer",
+            transition: "letter-spacing 0.25s ease",
+            "&:hover": {
+              letterSpacing: ".25rem",
+            },
           }}
           onClick={() => navigate("/")}
         >

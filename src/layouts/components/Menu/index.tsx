@@ -20,8 +20,8 @@ const Menu = ({ open, onClose }: MainMenuProps) => {
       PaperProps={{
         sx: {
           width: "100%",
-          backgroundImage:
-            "linear-gradient(to bottom, #050816 0%, #02040A 100%)",
+          backgroundImage: `linear-gradient(to bottom, ${theme.palette.background.default} 0%, ${theme.palette.background.paper} 100%)`,
+          //backgroundColor: theme.palette.background.paper,
           borderBottom: `1px solid ${theme.palette.divider}`,
           overflow: "hidden",
         },
@@ -49,7 +49,7 @@ const Menu = ({ open, onClose }: MainMenuProps) => {
             variant="subtitle1"
             sx={{ letterSpacing: ".16em", textTransform: "uppercase" }}
           >
-            EYES ON THE SOLAR SYSTEM
+            EYES ON THE MOON
           </Typography>
 
           <IconButton size="small" onClick={onClose}>
@@ -115,19 +115,13 @@ const Menu = ({ open, onClose }: MainMenuProps) => {
 
               {section.footer && (
                 <Box
-                  component={RouterLink}
-                  to={section.footer.to}
-                  onClick={onClose}
                   sx={{
                     mt: "auto",
                     pt: 1.5,
                     borderTop: "1px solid rgba(148,163,184,0.3)",
-                    fontSize: 13,
+                    fontSize: 12,
                     color: "text.secondary",
                     textDecoration: "none",
-                    "&:hover": {
-                      color: "primary.main",
-                    },
                   }}
                 >
                   {section.footer.label}

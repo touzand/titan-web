@@ -5,6 +5,7 @@ import remarkGfm from "remark-gfm";
 import { useMarkdown } from "../../shared/hooks/useMarkdown";
 import { teamMembers } from "../Home/components/SidePanel/utils";
 import Loader from "../../shared/components/Loader";
+import Subtitle from "../../shared/components/Subtitle";
 
 const MemberDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -42,10 +43,9 @@ const MemberDetail = () => {
           padding: "2rem",
           backgroundColor: theme.palette.background.paper,
         }}
+      gap="1rem"
       >
-        <Typography variant="overline" sx={{ letterSpacing: ".18em" }}>
-          TEAM MEMBER
-        </Typography>
+        <Subtitle>TEAM MEMBER</Subtitle>
 
         <Typography variant="h4" component="h1" fontWeight={700}>
           {member.name}

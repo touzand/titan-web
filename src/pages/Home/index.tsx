@@ -11,6 +11,7 @@ const Home = () => {
         width: "100%",
         minHeight: 0,
         overflow: "hidden",
+        padding:'0rem 5rem'
       }}
     >
       <SidePanel />
