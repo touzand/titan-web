@@ -94,23 +94,6 @@ const SidePanel = () => {
                   )}
                 </Box>
 
-                <Box
-                  component="img"
-                  src={member.avatar}
-                  alt={member.name}
-                  className="member-photo"
-                  sx={{
-                    position: "absolute",
-                    bottom: -0,
-                    right: -20,
-                    width: 90,
-                    objectFit: "cover",
-                    borderRadius: 1.5,
-                    filter: "grayscale(100%)",
-                    transition: "filter 0.25s ease, transform 0.25s ease",
-                    pointerEvents: "none",
-                  }}
-                />
               </Box>
             </Box>
           ))}

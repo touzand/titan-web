@@ -119,20 +119,6 @@ const ProjectDetail = () => {
                 mb: 2,
               }}
             >
-              {activeSection && (
-                <Typography
-                  variant="overline"
-                  sx={{
-                    letterSpacing: ".18em",
-                    textTransform: "uppercase",
-                    color: "text.secondary",
-                    display: "block",
-                    mb: 1,
-                  }}
-                >
-                  {activeSection.label}
-                </Typography>
-              )}
               <Box
                 sx={(theme) => ({
                   "& h1": { fontSize: "2rem", marginBottom: "1rem" },
