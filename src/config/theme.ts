@@ -41,49 +41,48 @@ export const theme = createTheme({
   },
 });
 
-const makeDebugPalette = (color: string) => ({
-  mode: "dark",
-  background: {
-    // Deixa o fundo escuro pra enxergar bem o vermelho
-    default: "#000000",
-    paper: "#000000",
-  },
-  primary: {
-    main: color,
-    light: color,
-    dark: color,
-    contrastText: "#000000",
-  },
-  secondary: {
-    main: color,
-    light: color,
-    dark: color,
-    contrastText: "#000000",
-  },
-  text: {
-    primary: color,
-    secondary: color,
-    disabled: color,
-  },
-  divider: color,
-  success: {
-    main: color,
-  },
-  warning: {
-    main: color,
-  },
-  error: {
-    main: color,
-  },
-  info: {
-    main: color,
-  },
-});
+//const makeDebugPalette = (color: string) => ({
+//mode: "dark",
+//background: {
+//default: "#000000",
+//paper: "#000000",
+//},
+//primary: {
+//main: color,
+//light: color,
+//dark: color,
+//contrastText: "#000000",
+//},
+//secondary: {
+//main: color,
+//light: color,
+//dark: color,
+//contrastText: "#000000",
+//},
+//text: {
+//primary: color,
+//secondary: color,
+//disabled: color,
+//},
+//divider: color,
+//success: {
+//main: color,
+//},
+//warning: {
+//main: color,
+//},
+//error: {
+//main: color,
+//},
+//info: {
+//main: color,
+//},
+//});
 
-export const debugTheme = createTheme({
-  palette: makeDebugPalette("#ff1744"), // vermelho forte
-  typography: {
-    fontFamily:
-      '"Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-  },
-});
+//export const debugTheme = createTheme({
+//palette: makeDebugPalette("#ff1744"),
+//typography: {
+//fontFamily:
+//'"Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+//},
+//});
