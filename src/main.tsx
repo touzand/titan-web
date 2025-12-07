@@ -4,15 +4,11 @@ import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import App from "./App.tsx";
 import "./index.css";
-import { debugTheme, theme } from "./config/theme.ts";
-
-const USE_DEBUG_THEME = false;
-
-const mainTheme = USE_DEBUG_THEME ? debugTheme : theme;
+import { theme } from "./config/theme.ts";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <ThemeProvider theme={mainTheme}>
+    <ThemeProvider theme={theme}>
       <CssBaseline />
       <BrowserRouter>
         <App />

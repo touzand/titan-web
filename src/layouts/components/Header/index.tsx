@@ -18,7 +18,7 @@ type NavItem = {
 
 const navItems: NavItem[] = [];
 
-const Header = ({ setMenuOpen }: { setMenuOpen: () => void }) => {
+const Header = ({ setMenuOpen }: { setMenuOpen: (arg: boolean) => void }) => {
   const theme = useTheme();
   const isActive = (path: string) => location.pathname === path;
   const navigate = useNavigate();
