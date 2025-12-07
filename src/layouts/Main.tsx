@@ -32,7 +32,7 @@ const MainLayout = () => {
             height: "100%",
             objectFit: "cover",
             zIndex: 0,
-            opacity: 0.05,
+            opacity: 0.15,
             //filter: "blur(20px)",
             //transform: "scale(1.05)",
             pointerEvents: "none",

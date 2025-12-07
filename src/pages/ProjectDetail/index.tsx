@@ -30,8 +30,6 @@ const ProjectDetail = () => {
     "https://cdn.lomn.app/titan/media/markdown/titan-project.md",
   );
 
-  const activeSection = sections.find((s) => s.id === activeSectionId);
-
   return (
     <Box
       sx={{
@@ -97,7 +95,6 @@ const ProjectDetail = () => {
           </List>
         </Box>
 
-        {/* CONTEÚDO */}
         <Box
           sx={{
             flex: 1,
@@ -115,7 +112,6 @@ const ProjectDetail = () => {
           {!loading && !error && content && (
             <Box
               sx={{
-                // título da seção ativa (opcional)
                 mb: 2,
               }}
             >
@@ -127,13 +123,13 @@ const ProjectDetail = () => {
                     fontSize: ".75rem",
                     letterSpacing: ".18em",
                     textTransform: "uppercase",
-                    color: "text.secondary",
+                    color: "primary.main",
                     margin: 0,
                     fontWeight: 400,
                   },
                   "& p": {
-                    fontSize: ".9rem",
-                    color: "text.secondary",
+                    //fontSize: ".9rem",
+                    //color: "text.secondary",
                     marginBottom: "0.75rem",
                   },
 
